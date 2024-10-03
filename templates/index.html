@@ -1,0 +1,400 @@
+<html>
+ <head>
+  <title>
+   Portfolio
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        header .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        header .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #000000;
+            margin: 4px 0;
+            transition: all 0.4s ease;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        header nav a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #000000;
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
+        header nav a:hover::after {
+            width: 100%;
+            left: 0;
+            background: #000000;
+        }
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: left;
+                background-color: #ffffff;
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+            }
+            header nav a {
+                padding: 10px 0;
+                border-bottom: 1px solid #e0e0e0;
+                transition: all 0.3s ease;
+            }
+            header .hamburger {
+                display: flex;
+            }
+            header .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            header .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            header .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            header nav.active {
+                display: flex;
+            }
+        }
+        .hero {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            padding: 0 20px;
+            transition: all 0.3s ease;
+        }
+        .hero p {
+            font-size: 18px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .hero h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .hero .cta {
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .hero .cta button {
+            background-color: #000000;
+            color: #ffffff;
+            border: none;
+            padding: 15px 30px;
+            font-size: 18px;
+            font-weight: 600;
+            cursor: pointer;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .hero .cta button:hover {
+            background-color: #333333;
+            transform: scale(1.05);
+        }
+        .hero img {
+            margin-top: 30px;
+            max-width: 100%;
+            height: auto;
+            transition: all 0.3s ease;
+        }
+        .projects {
+            margin-top: 50px;
+            transition: all 0.3s ease;
+        }
+        .projects h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .projects .project-list {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        .projects .project-item {
+            background-color: #f9f9f9;
+            border: 1px solid #e0e0e0;
+            border-radius: 10px;
+            padding: 20px;
+            width: 300px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .projects .project-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        .projects .project-item img {
+            max-width: 100%;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .projects .project-item h3 {
+            font-size: 24px;
+            font-weight: 600;
+            margin: 15px 0 10px;
+            transition: all 0.3s ease;
+        }
+        .projects .project-item p {
+            font-size: 16px;
+            color: #666666;
+            transition: all 0.3s ease;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        footer .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        footer .partners div {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+        footer .partners div:hover {
+            transform: scale(1.1);
+        }
+        footer .partners div i {
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        footer .credit {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666666;
+            transition: all 0.3s ease;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <header>
+    <div class="logo">
+     Azyansah.
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+     <div>
+     </div>
+     <div>
+     </div>
+     <div>
+     </div>
+    </div>
+    <nav>
+     <a href="#">
+      Home
+     </a>
+     <a href="#">
+      My Works
+     </a>
+     <a href="#">
+      Case Studies
+     </a>
+     <a href="#">
+      My Process
+     </a>
+     <a href="#">
+      Contact
+     </a>
+     <a href="#">
+      Get Started
+     </a>
+    </nav>
+   </header>
+   <div class="hero fade-in">
+    <p>
+     👋 Hi! my name is Azyansah &amp; I am a
+    </p>
+    <h1>
+     Front End Developer
+    </h1>
+    <p>
+     Crafting Exceptional Digital Experiences, Transforming Complex Problems into Simple Solutions
+    </p>
+    <div class="cta">
+     <button>
+      Get Started
+     </button>
+    </div>
+    <img alt="Illustration of a person with headphones and a drawing of another person on a screen" height="300" src="https://storage.googleapis.com/a1aa/image/Y8IlXo4BJE4BIpNf67OlAkAS8s3RZlvVDp40TiQgmAEEAaxJA.jpg" width="400"/>
+   </div>
+   <div class="projects fade-in">
+    <h2>
+     My Projects
+    </h2>
+    <div class="project-list">
+     <div class="project-item">
+      <img alt="Project 1 thumbnail" height="200" src="https://storage.googleapis.com/a1aa/image/NMOZqsJ5PgobO9YZYdF9TuDCARHDA0dDyqm9mrPOfg6qBaxJA.jpg" width="300"/>
+      <h3>
+       Project 1
+      </h3>
+      <p>
+       Description of project 1.
+      </p>
+     </div>
+     <div class="project-item">
+      <img alt="Project 2 thumbnail" height="200" src="https://storage.googleapis.com/a1aa/image/FuSG2eUCNdSUW69VCLYS1g9bmH1GfTcPMefJg4SjWgMINQLOB.jpg" width="300"/>
+      <h3>
+       Project 2
+      </h3>
+      <p>
+       Description of project 2.
+      </p>
+     </div>
+     <div class="project-item">
+      <img alt="Project 3 thumbnail" height="200" src="https://storage.googleapis.com/a1aa/image/aX54isLm2R5VMhgLKUtthSPReTnjdMhfISUU158IFOuTD0iTA.jpg" width="300"/>
+      <h3>
+       Project 3
+      </h3>
+      <p>
+       Description of project 3.
+      </p>
+     </div>
+     <div class="project-item">
+      <img alt="Project 4 thumbnail" height="200" src="https://storage.googleapis.com/a1aa/image/510yt7eS5rTpdyhHXvLe9QUjYSh4pVm82GQ5vD6fLmSiGoFnA.jpg" width="300"/>
+      <h3>
+       Project 4
+      </h3>
+      <p>
+       Description of project 4.
+      </p>
+     </div>
+    </div>
+   </div>
+   <footer class="fade-in">
+    <div class="partners">
+     <div>
+      <i class="fab fa-adobe">
+      </i>
+      Adobe
+     </div>
+     <div>
+      <i class="fab fa-paypal">
+      </i>
+      PayPal
+     </div>
+     <div>
+      <i class="fab fa-salesforce">
+      </i>
+      Salesforce
+     </div>
+     <div>
+      <i class="fab fa-microsoft">
+      </i>
+      Microsoft
+     </div>
+     <div>
+      <i class="fab fa-google">
+      </i>
+      Google
+     </div>
+    </div>
+    <div class="credit">
+     &copy; 2024 Azyansah. All rights reserved.
+    </div>
+   </footer>
+  </div>
+  <script>
+   function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function onScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            elements.forEach(element => {
+                const offsetTop = element.offsetTop;
+                const windowHeight = window.innerHeight;
+
+                if (scrollTop + windowHeight > offsetTop + 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('load', onScroll);
+  </script>
+ </body>
+</html>

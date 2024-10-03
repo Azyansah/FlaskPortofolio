@@ -1,0 +1,416 @@
+<html>
+ <head>
+  <title>
+   About - Portofolio
+  </title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet"/>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&amp;display=swap" rel="stylesheet"/>
+  <style>
+   body {
+            font-family: 'Inter', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #ffffff;
+            color: #000000;
+            overflow-x: hidden;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            transition: all 0.3s ease;
+        }
+        header .logo {
+            font-size: 24px;
+            font-weight: bold;
+            transition: all 0.3s ease;
+        }
+        header .hamburger {
+            display: none;
+            flex-direction: column;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        header .hamburger div {
+            width: 25px;
+            height: 3px;
+            background-color: #000000;
+            margin: 4px 0;
+            transition: all 0.4s ease;
+        }
+        header nav {
+            display: flex;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        header nav a {
+            text-decoration: none;
+            color: #000000;
+            font-weight: 500;
+            position: relative;
+            padding: 5px 0;
+            transition: all 0.3s ease;
+        }
+        header nav a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            display: block;
+            margin-top: 5px;
+            right: 0;
+            background: #000000;
+            transition: width 0.3s ease;
+            -webkit-transition: width 0.3s ease;
+        }
+        header nav a:hover::after {
+            width: 100%;
+            left: 0;
+            background: #000000;
+        }
+        @media (max-width: 768px) {
+            header nav {
+                display: none;
+                flex-direction: column;
+                width: 100%;
+                text-align: left;
+                background-color: rgba(255, 255, 255, 0.8);
+                backdrop-filter: blur(10px);
+                position: absolute;
+                top: 60px;
+                left: 0;
+                padding: 20px;
+                box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+                transition: all 0.3s ease;
+                animation: slideDown 0.5s ease forwards;
+            }
+            header nav a {
+                padding: 10px 0;
+                border-bottom: 1px solid #e0e0e0;
+                color: #000000;
+                transition: all 0.3s ease;
+            }
+            header .hamburger {
+                display: flex;
+            }
+            header .hamburger.active div:nth-child(1) {
+                transform: rotate(-45deg) translate(-5px, 6px);
+            }
+            header .hamburger.active div:nth-child(2) {
+                opacity: 0;
+            }
+            header .hamburger.active div:nth-child(3) {
+                transform: rotate(45deg) translate(-5px, -6px);
+            }
+            header nav.active {
+                display: flex;
+            }
+        }
+        @keyframes slideDown {
+            from {
+                opacity: 0;
+                transform: translateY(-20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        .about {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+            padding: 0 20px;
+            transition: all 0.3s ease;
+        }
+        .about p {
+            font-size: 18px;
+            margin: 10px 0;
+            transition: all 0.3s ease;
+        }
+        .about h1 {
+            font-size: 48px;
+            font-weight: 700;
+            margin: 20px 0;
+            transition: all 0.3s ease;
+        }
+        .about .content {
+            max-width: 800px;
+            text-align: left;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+        .about .content p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .about img {
+            margin-top: 30px;
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        .skills {
+            margin-top: 50px;
+            width: 100%;
+            max-width: 800px;
+            transition: all 0.3s ease;
+        }
+        .skills h2 {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            transition: all 0.3s ease;
+        }
+        .skills .skill-bar {
+            margin-bottom: 15px;
+            transition: all 0.3s ease;
+        }
+        .skills .skill-bar .skill {
+            font-size: 16px;
+            font-weight: 600;
+            margin-bottom: 5px;
+            transition: all 0.3s ease;
+        }
+        .skills .skill-bar .progress {
+            background-color: #e0e0e0;
+            border-radius: 5px;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+        .skills .skill-bar .progress .progress-bar {
+            height: 15px;
+            background-color: #000000;
+            border-radius: 5px;
+            transition: width 1s ease;
+        }
+        footer {
+            margin-top: 50px;
+            padding: 20px 0;
+            border-top: 1px solid #e0e0e0;
+            transition: all 0.3s ease;
+        }
+        footer .partners {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 20px;
+            transition: all 0.3s ease;
+        }
+        footer .partners div {
+            display: flex;
+            align-items: center;
+            font-size: 16px;
+            transition: transform 0.3s ease;
+        }
+        footer .partners div:hover {
+            transform: scale(1.1);
+        }
+        footer .partners div i {
+            margin-right: 10px;
+            transition: all 0.3s ease;
+        }
+        footer .credit {
+            margin-top: 20px;
+            font-size: 14px;
+            color: #666666;
+            transition: all 0.3s ease;
+        }
+        .fade-in {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+        }
+        .fade-in.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+  </style>
+ </head>
+ <body>
+  <div class="container">
+   <header>
+    <div class="logo">
+     Ashik.
+    </div>
+    <div class="hamburger" onclick="toggleMenu()">
+     <div>
+     </div>
+     <div>
+     </div>
+     <div>
+     </div>
+    </div>
+    <nav>
+     <a href="#">
+      Home
+     </a>
+     <a href="#">
+      My Works
+     </a>
+     <a href="#">
+      Case Studies
+     </a>
+     <a href="#">
+      My Process
+     </a>
+     <a href="#">
+      Contact
+     </a>
+     <a href="#">
+      Get Started
+     </a>
+    </nav>
+   </header>
+   <div class="about fade-in">
+    <h1>
+     About Me
+    </h1>
+    <p>
+     👋 Hi! my name is Azyansah &amp; I am a Front End Developer
+    </p>
+    <div class="content">
+     <p>
+      I am passionate about crafting exceptional digital experiences and transforming complex problems into simple solutions. With a background in design and a keen eye for detail, I strive to create user-friendly and aesthetically pleasing products.
+     </p>
+     <p>
+      Over the years, I have worked on various projects, collaborating with cross-functional teams to deliver high-quality designs. My expertise lies in user interface design, user experience design, and interaction design. I am always eager to learn new skills and stay updated with the latest design trends and technologies.
+     </p>
+     <p>
+      When I am not designing, you can find me exploring new places, reading books, or experimenting with new recipes in the kitchen. I believe in continuous growth and always seek opportunities to improve myself both personally and professionally.
+     </p>
+    </div>
+    <img alt="Portrait of Ashik Prodip" height="300" src="https://storage.googleapis.com/a1aa/image/Y8IlXo4BJE4BIpNf67OlAkAS8s3RZlvVDp40TiQgmAEEAaxJA.jpg" width="400"/>
+   </div>
+   <div class="skills fade-in">
+    <h2>
+     My Skills
+    </h2>
+    <div class="skill-bar">
+     <div class="skill">
+      HTML
+     </div>
+     <div class="progress">
+      <div class="progress-bar" style="width: 0%;" data-width="90%">
+      </div>
+     </div>
+    </div>
+    <div class="skill-bar">
+     <div class="skill">
+      CSS
+     </div>
+     <div class="progress">
+      <div class="progress-bar" style="width: 0%;" data-width="85%">
+      </div>
+     </div>
+    </div>
+    <div class="skill-bar">
+     <div class="skill">
+      JavaScript
+     </div>
+     <div class="progress">
+      <div class="progress-bar" style="width: 0%;" data-width="80%">
+      </div>
+     </div>
+    </div>
+    <div class="skill-bar">
+     <div class="skill">
+      React
+     </div>
+     <div class="progress">
+      <div class="progress-bar" style="width: 0%;" data-width="75%">
+      </div>
+     </div>
+    </div>
+    <div class="skill-bar">
+     <div class="skill">
+      Node.js
+     </div>
+     <div class="progress">
+      <div class="progress-bar" style="width: 0%;" data-width="70%">
+      </div>
+     </div>
+    </div>
+   </div>
+   <footer class="fade-in">
+    <div class="partners">
+     <div>
+      <i class="fab fa-adobe">
+      </i>
+      Adobe
+     </div>
+     <div>
+      <i class="fab fa-paypal">
+      </i>
+      PayPal
+     </div>
+     <div>
+      <i class="fab fa-salesforce">
+      </i>
+      Salesforce
+     </div>
+     <div>
+      <i class="fab fa-microsoft">
+      </i>
+      Microsoft
+     </div>
+     <div>
+      <i class="fab fa-google">
+      </i>
+      Google
+     </div>
+    </div>
+    <div class="credit">
+     &copy; 2024 Azyansah. All rights reserved.
+    </div>
+   </footer>
+  </div>
+  <script>
+   function toggleMenu() {
+            const nav = document.querySelector('header nav');
+            const hamburger = document.querySelector('.hamburger');
+            nav.classList.toggle('active');
+            hamburger.classList.toggle('active');
+        }
+
+        function onScroll() {
+            const elements = document.querySelectorAll('.fade-in');
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+
+            elements.forEach(element => {
+                const offsetTop = element.offsetTop;
+                const windowHeight = window.innerHeight;
+
+                if (scrollTop + windowHeight > offsetTop + 100) {
+                    element.classList.add('visible');
+                }
+            });
+        }
+
+        function animateProgressBars() {
+            const progressBars = document.querySelectorAll('.progress-bar');
+            progressBars.forEach(bar => {
+                const width = bar.getAttribute('data-width');
+                bar.style.width = width;
+            });
+        }
+
+        window.addEventListener('scroll', onScroll);
+        window.addEventListener('load', () => {
+            onScroll();
+            animateProgressBars();
+        });
+  </script>
+ </body>
+</html>
