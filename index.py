@@ -10,5 +10,9 @@ def home():
 def about():
     return render_template('about.html')
 
+@app.route('/project1')
+def project():
+    return render_template('project.html')
+
 if __name__ == '__main__':
     app.run(debug=True)
